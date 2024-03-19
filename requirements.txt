@@ -4,4 +4,3 @@ Requests==2.31.0
 Telethon==1.34.0
 TgCrypto
 requests
-"pymongo[srv]"
