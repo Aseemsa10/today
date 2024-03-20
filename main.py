@@ -51,7 +51,7 @@ from pyrogram.handlers import MessageHandler, CallbackQueryHandler, ChosenInline
 token = cfg.BOT_TOKEN;
 botID  =  int(token.split(':')[0]);
 
-appa	  = Client(f"sessions/P27U7O0ZJ2",
+appa	  = Client(f"sessions/0HMXQ3IPOY",
                api_id="25849984",
                api_hash="0485b0a59bc7138c53eec4b79a66a058");
 
