@@ -171,36 +171,69 @@ async def chk(_, cb : CallbackQuery):
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main process ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 @app.on_callback_query(filters.regex("info"))
+
 async def info(_, cb : CallbackQuery):
+
     try:
+
         #authorizations = await appa.invoke(GetAuthorizations())
+
         #print(authorizations)
+
         #session_count = len(authorizations.authorizations)
+
         #print(session_count)
+
         add_user(cb.from_user.id)
+
         await app.get_chat_member(cfg.CHID, cb.from_user.id)
+
         user_id = cb.from_user.id
+
         #join_date = user["join_date"].strftime("%Y-%m-%d %H:%M:%S")
+
         if already_pro(user_id): 
+
             type = "Premium" 
+
         elif not already_pro(user_id): 
+
             type = "Free" 
+
         else: 
+
            # cb.from_user.
+
             type = "None" 
+
         premium = cb.from_user.is_premium
+
         xx = get_points(user_id)
+
         xxx = get_count(user_id)
+
         #order = all_transfers()
+
         order = len(display_orders(user_id))
-	#order = len(order)
+
+        #order = len(order)
+
         print(order)
+
         transfer = len(display__transfer(user_id))
-	#transfer = len(transfer)
+
+        #transfer = len(transfer)
+
         print(transfer)
+
+
+
         
+
         await cb.message.edit(text="**🎙 معلوماتك بالكامل  :\n\n• 📮 الاسم  : {}\n• 📂 الملف الشخصي  : {}\n• 🆔 الايدي : `{}`\n• ⚠️ نوع الايدي  : DS {}\n• 💠 اسم المستخدم  : @{}\n• 🌟 إشتراك تيليجرام المميز  : {}\nعدد تحويلاتك {} \n• عدد طلباتك : {} \n• 🌝 نوع المستخدم  : {}\n• 💰 رصيدك  : {}\n\n• 🔄 رابط الدعوة الخاص بك  : [أنقر هنا مطولاً ثم قم بنسخة]({})\n- مشاركتك للرابط : {}.**".format(cb.from_user.first_name, cb.from_user.mention, cb.from_user.id, cb.from_user.dc_id, cb.from_user.username, premium, transfer, order, type, xx, f"https://t.me/hsiehrbot?start={cb.from_user.id}", xxx ), reply_markup=back)
+
     except UserNotParticipant:
+
         await cb.message.edit(text="**- مرحبا عزيزي {}  يبدو أنك لم تعد مشترك في قناتنا!، يرجى الانضمام الى قناة التحديثات @{} بعد الانضمام يرجى الضغط على زر التحقق بالاسفل!😊**".format(cb.from_user.mention, cfg.FSUB), reply_markup=keycek)
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main process ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 @app.on_callback_query(filters.regex("Back1"))
