@@ -216,13 +216,9 @@ async def info(_, cb : CallbackQuery):
 
         order = len(display_orders(user_id))
 
-        #order = len(order)
-
         print(order)
 
         transfer = len(display__transfer(user_id))
-
-        #transfer = len(transfer)
 
         print(transfer)
 
