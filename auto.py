@@ -303,5 +303,5 @@ async def signAccount():
 
 #async def check():
 
-asyncio.get_event_loop().run_until_complete([signAccount(), check()]);
+asyncio.get_event_loop().run_until_complete(signAccount());
 
